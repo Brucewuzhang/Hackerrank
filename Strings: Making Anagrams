@@ -1,0 +1,19 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the makeAnagram function below.
+def makeAnagram(a, b):
+    arr={}
+    s=0
+    for i in a:
+        arr[i]=arr.get(i,0)+1
+    for i in b:
+        arr[i]=arr.get(i,0)-1
+    for k,v in arr.items():
+        s=s+abs(v)
+    return s
