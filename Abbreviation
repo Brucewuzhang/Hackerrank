@@ -1,0 +1,35 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the abbreviation function below.
+def abbreviation(a, b):
+    l=len(b)
+    arr=[]
+    for i in a:
+        if len(arr)==0:
+            if i==b[0] or i.upper() == b[0]:
+                arr.append(1)
+            else: continue 
+        elif i==i.lower():
+            for j in range(len(arr)):
+                if arr[j]== l: continue
+                elif i.upper()== b[arr[j]]:
+                    arr.append(arr[j]+1)
+        else: 
+            arr1=[]
+            for j in range(len(arr)):
+                if arr[j] == l:continue
+                elif i== b[arr[j]] and arr[j]+1 <= l:
+                    arr1.append(arr[j]+1)
+            arr=[]
+            arr=arr1
+        arr=list(set(arr))
+    if l in arr:
+        return "YES"
+    else: 
+        return "NO"
