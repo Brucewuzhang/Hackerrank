@@ -1,0 +1,29 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the isValid function below.
+def isValid(s):
+    arr={}
+    for i in s:
+        arr[i]=arr.get(i,0) + 1
+    minimum=len(s)+1
+    b={}
+    for k,v in arr.items():
+        b[v]=b.get(v,0)+1
+    a=set(b)
+    if len(a)== 1:
+        return "YES"
+    if len(a)>=3:
+        return "NO"
+    c=max(a)
+    d=min(a)
+    if d==1 and b[d]==1:
+        return "YES"
+    if c-d!=1 or b[c]>1:
+        return "NO"
+    return "YES"
