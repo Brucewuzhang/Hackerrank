@@ -1,0 +1,22 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the luckBalance function below.
+def luckBalance(k, contests):
+    a=[]
+    s=0
+    for i in contests:
+        if i[1]==0:
+            s=s+i[0]
+        else:
+            a.append(i[0])
+    a.sort()
+    if k>=len(a):
+        return s+sum(a)
+    else:
+        return s+sum(a[len(a)-k:len(a)])-sum(a[:len(a)-k])
