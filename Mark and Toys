@@ -1,0 +1,17 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the maximumToys function below.
+def maximumToys(prices, k):
+    prices.sort()
+    j=0
+    for i in prices:
+        if k>= i:
+            j=j+1
+            k=k-i
+    return j
